@@ -1,6 +1,6 @@
 {
-  "name": "A1 TV",
-  "short_name": "A1 TV",
+  "name": "BAYA TV",
+  "short_name": "BAYA TV",
   "description": "Premium live television portal for Sports, News, Entertainment, Kids, and Islamic channels.",
   "start_url": "./index.html",
   "display": "standalone",

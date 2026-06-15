@@ -1,5 +1,5 @@
 // ==========================================
-// A1 TV - Application Controller Upgraded
+// BAYA TV - Application Controller Upgraded
 // ==========================================
 
 // Global state variables
@@ -600,7 +600,7 @@ function playChannelByIndex(index) {
     currentChannelIndex = index;
     const ch = channels[index];
 
-    console.log(`[A1 TV] Playing Channel ${ch.id}: ${ch.name}`);
+    console.log(`[BAYA TV] Playing Channel ${ch.id}: ${ch.name}`);
 
     // Update player active state overlays
     document.querySelectorAll('.channel-card').forEach(c => c.classList.remove('active'));
@@ -739,7 +739,7 @@ function autoplayStream() {
             volumeBar.value = videoPlayer.volume || 1;
             updateVolumeIcon(false);
         }).catch(playErr => {
-            console.warn("[A1 TV] Autoplay with sound was blocked, retrying muted.", playErr);
+            console.warn("[BAYA TV] Autoplay with sound was blocked, retrying muted.", playErr);
             videoPlayer.muted = true;
             updateVolumeIcon(true);
             playPromise = videoPlayer.play();
@@ -750,7 +750,7 @@ function autoplayStream() {
                     videoBufferOverlay.style.display = 'none';
                     volumeBar.value = 0;
                 }).catch(mutedErr => {
-                    console.error("[A1 TV] Failed to start playback", mutedErr);
+                    console.error("[BAYA TV] Failed to start playback", mutedErr);
                     updatePlayIcon(false);
                     videoBufferOverlay.style.display = 'none';
                 });
@@ -799,7 +799,7 @@ function updateMediaSessionMetadata(channel) {
 
     navigator.mediaSession.metadata = new MediaMetadata({
         title: channel.name,
-        artist: 'A1 TV Live',
+        artist: 'BAYA TV Live',
         album: channel.category,
         artwork: channel.logo ? [{ src: channel.logo }] : []
     });
@@ -1195,7 +1195,7 @@ videoPlayer.addEventListener('stalled', () => {
         try {
             hlsInstance.startLoad();
         } catch (error) {
-            console.warn('[A1 TV] Unable to restart HLS load after stall', error);
+            console.warn('[BAYA TV] Unable to restart HLS load after stall', error);
         }
     } else {
         videoPlayer.load();
@@ -1344,12 +1344,12 @@ function closeHelpModalOutside(event) {
 // Sharing stream functionality URL copy helper
 function shareStream() {
     const activeCh = channels[currentChannelIndex];
-    const shareText = `Streaming live: ${activeCh.name} on A1 TV!`;
+    const shareText = `Streaming live: ${activeCh.name} on BAYA TV!`;
     const shareUrl = `${window.location.origin}${window.location.pathname}?ch=${activeCh.id}`;
     
     if (navigator.share) {
         navigator.share({
-            title: 'A1 TV Live',
+            title: 'BAYA TV Live',
             text: shareText,
             url: shareUrl
         }).catch(err => console.log('Error sharing', err));

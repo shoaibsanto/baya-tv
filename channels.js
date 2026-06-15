@@ -1,4 +1,4 @@
-// A1 TV Channel Database
+// BAYA TV Channel Database
 // Full catalog restored with visually verified feed-name corrections
 
 const channels = [
